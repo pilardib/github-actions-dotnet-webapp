@@ -7,8 +7,6 @@ on:
 
 jobs:
     job1:
-        on:
-            push
         name: checks-commits
         runs-on: ubuntu-latest  
         steps:
