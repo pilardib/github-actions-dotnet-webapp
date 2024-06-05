@@ -20,12 +20,13 @@ jobs:
                 commit-signoff: true
                 job-summary: true
     job2:
+        name: chatgpt-check-code
         runs-on: ubuntu-latest
-        name: create-pull-request
-        uses: peter-evans/create-pull-request@v6
-        with:
-            commit-message: 'chore: update used-by badge by github-actions[bot]'
-            base: main
+        steps:
+            - uses: anc95/ChatGPT-CodeReview@main
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     job3:
         name: checks-status
