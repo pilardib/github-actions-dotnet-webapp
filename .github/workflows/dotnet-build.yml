@@ -1,0 +1,22 @@
+name: Teste GitHub Actions
+
+on:
+    push:
+    schedule:
+        - cron: 0 * * * *
+
+jobs:
+    job1:
+        name: checks-commits
+        runs-on: ubuntu-latest  
+        steps:
+            - uses: actions/checkout@v4
+            - uses: commit-check/commit-check-action@v1
+              with:
+                message: true
+                branch: true
+                author-name: true
+                author-email: true
+                commit-signoff: true
+                job-summary: true
+        
