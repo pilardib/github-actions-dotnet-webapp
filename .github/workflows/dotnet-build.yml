@@ -16,9 +16,9 @@ jobs:
               with:
                 dotnet-version: '6.0.x'
             - name: Install dependencies
-              run: dotnet restore
+              run: dotnet restore myprojectexample.csproj
             - name: Test with the dotnet CLI
-              run: dotnet test
+              run: dotnet test myprojectexample.csproj
             
     job2:
         name: chatgpt-check-code
