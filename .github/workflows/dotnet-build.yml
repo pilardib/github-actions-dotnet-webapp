@@ -7,19 +7,19 @@ on:
 
 jobs:
     job1:
-        name: checks-commits
+        name: build and test code
         runs-on: ubuntu-latest  
         steps:
             - uses: actions/checkout@v4
-            - uses: commit-check/commit-check-action@v1
+            - name: Setup-dotnet
+              uses: actions/setup-dotnet@v3
               with:
-                message: true
-                branch: true
-                author-name: true
-                author-email: true
-                commit-signoff: true
-                dry-run: true
-                job-summary: true
+                dotnet-version: '6.0.x'
+            - name: Install dependencies
+              run: dotnet restore
+            - name: Test with the dotnet CLI
+              run: dotnet test
+            
     job2:
         name: chatgpt-check-code
         runs-on: ubuntu-latest
