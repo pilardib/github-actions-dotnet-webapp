@@ -1,9 +1,9 @@
 name: Teste GitHub Actions
 
 on:
-    push:
-    schedule:
-        - cron: 0 * * * *
+    push
+#    schedule:
+#        - cron: 0 * * * *
 
 jobs:
     job1:
